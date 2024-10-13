@@ -1,0 +1,107 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    font-family: "Poppins", sans-serif;
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.12); /* Adjusted the alpha to make it clearer */
+    border-radius: 12px;
+    position: relative;
+    --mouse-x: 240px;
+    --mouse-y: 154px;
+}
+
+.container:hover > .card {
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), 
+        hsl(var(--color) / 1), rgba(255, 255, 255, 0.12) 40%);
+}
+
+.card-content {
+    position: absolute;
+    inset: 1px;
+    background-color: #131315;
+    border-radius: inherit;
+}
+
+.card:nth-child(1) {
+    --color: 148 80% 60%;
+}
+
+.card:nth-child(2) {
+    --color: 220 100% 35%;
+}
+
+.card:nth-child(3) {
+    --color: 341 100% 50%;
+}
+
+.card::before {
+    z-index: 2;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(500px circle at var(--mouse-x) var(--mouse-y),
+       hsl(var(--color) / 0.35), transparent 40%);
+    border-radius: inherit;
+    opacity: 0;
+}
+
+.container:hover > .card::before {
+    opacity: 1;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+.card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.card-content > i {
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.card-content > p {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.card-content > a {
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 0;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.card-content > a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
